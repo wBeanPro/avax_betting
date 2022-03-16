@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toast'
 import { Container, Navbar, Image  } from "react-bootstrap";
 import Button from '@mui/material/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,18 +23,46 @@ function Navigation() {
         setShow(a);
     }
 
+    const [walletconnect, setWalletconnect] = useState(true);
+
     const [gamebtnShow, setGamebtnShow ] = useState(false);
 
     const ConnectMeta = async () => {
         const metamaskProvider = window.ethereum
+        await metamaskProvider.request({
+            method: 'wallet_addEthereumChain',
+            params: [{
+                chainId: "0xA869",
+                rpcUrls: ["https://api.avax-test.network/ext/bc/C/rpc/"],
+                chainName: "FUJI Testnet",
+                nativeCurrency: {
+                    name: "AVAX",
+                    symbol: "AVAX",
+                    decimals: 18
+                },
+                blockExplorerUrls: ["https://testnet.snowtrace.io/"]
+            }]
+        });
         await metamaskProvider.request({ method: 'eth_requestAccounts' });
+
         const provider = new ethers.providers.Web3Provider(metamaskProvider);
         const signer_metamask = provider.getSigner();
-        const { chainId } = await provider.getNetwork();
+        // const { chainId } = await provider.getNetwork();
         setShow(false);
         setGamebtnShow(true);
+        setWalletconnect(false);
     }
-    
+
+    useEffect(() => {
+        const connectValidate = window.ethereum.request({method: 'isConnected' });
+        if (connectValidate == true) {
+            setShow(false);
+            setGamebtnShow(true);
+            setWalletconnect(false);
+        } else {
+            return false;
+        }
+    }, [])
 
     return (
         <div className={visible?'App-light':'App-dark'}>
@@ -52,7 +81,7 @@ function Navigation() {
                 <div className='main-body'>
                     <Image src='https://i.imgur.com/896fn7R.png' className='coin-light'/>
                     <div className='sellect-wallet-container'>
-                        <button className='sellect-wallet-light' onClick ={ () => sethide(true)}>Sellect Wallet</button>
+                        <button className={walletconnect?'sellect-wallet-light':'hide'} onClick ={ () => sethide(true)}>Sellect Wallet</button>
                     </div>
 
                         {/* Game button component */}
