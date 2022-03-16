@@ -1,0 +1,284 @@
+.side {
+    height: 100vh;
+    background-color: rgb(206, 145, 191);
+    position: absolute;
+    float: right;
+    right: 0px;
+    top: 0px;
+    z-index: 1050;
+    transition: 0.6s;
+    display: block;
+    overflow: hidden;
+}
+
+.cancelicon {
+    font-size: 2.3rem !important;
+    position: absolute;
+    right: 0.1rem;
+}
+
+.side-show {
+    width: 314px;
+}
+.cover-show {
+    width: 100%;
+}
+.hide {
+    width: 0% !important;
+}
+
+.sidebar_container {
+    padding-left: 1.5rem;
+    font-size: 2rem;
+}
+
+.sidebar_logo {
+    width: 8.125rem;
+}
+
+.sidebar_content {
+    text-align: center;
+}
+
+.sidebar_link_container {
+    margin-top: 3rem;
+    font-size: 1.7rem;
+    text-align: left;
+}
+
+.nav_container a {
+    color: black !important;
+}
+
+.cover {
+    z-index: 1030;
+    background-color: rgba(73, 66, 66, 0.596);
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: 0.3s;
+    float: right;
+}
+
+.header {
+    margin: 0.4rem 0 !important;
+    max-width: 93.75rem;
+}
+
+
+.connect_button{
+    background-color: rgb(187, 133, 238) !important;
+    font-size: 1.2rem !important;
+    border-radius: 0.5rem !important;
+    border: none;
+}
+
+.navbar_button_container {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.navbar_button_container  a {
+    color: white !important;
+    background-color: rgb(241, 11, 118);
+    margin-right: 3rem;
+    border-radius: 0.3125rem;
+}
+
+.nav_container {
+    padding: 0 0 !important;
+    margin-top: -5.7rem;
+}
+
+.main_container {
+    margin: 2rem 0 0;
+    font-size: 1.5rem;
+    color: white;
+    padding: 0 6vw;
+    grid-gap: 0 3.125rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.mint_container {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    justify-content: space-between;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.mint_container p{
+    color: rgb(241, 11, 118);
+    font-size: 2.5rem !important;
+}
+
+.mint_button {
+    font-size: 1.5rem !important;
+    background-color: rgb(241, 11, 118) !important;
+    padding: 0.7rem 1.5rem !important;
+    border-radius: 0.3125rem !important
+}
+
+.animatelotus_container {
+    width: 47rem;
+    height: 30.7rem;
+    border-radius: 3.5rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(216, 191, 216, 0.651);
+}
+
+.animatelotus {
+    width: 30rem;
+    height:30rem;
+}
+
+.footer_container {
+    padding: 2.2vw 5vw;
+    display: flex;
+    align-items: center;
+}
+
+.iconsize {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 2rem;
+    font-size: 3rem;
+    color: white;
+}
+
+.menuicon {
+    width: 3rem !important;
+    height: 100% !important;
+    margin-left: 1rem;
+    display: none !important;
+}
+
+@media (max-width: 1600px) {
+    .menuicon {
+        display: block !important;
+    }
+}
+
+@media (max-width: 1450px) {
+    .animatelotus_container {
+        width: 40rem;
+        height: 34rem;
+    }
+    .mint_button {
+        font-size: 1rem !important;
+    }
+    .nav_container {
+        margin-top: 0rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .main_container {
+        margin: 3rem 0 0;
+        display: block;
+        justify-content: center;
+        align-items: center;
+    }
+    .animatelotus_container {
+        width: 38rem;
+        height: 30rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .mint_container {
+        margin-top: 1rem;
+    }
+    .footer_container {
+        text-align: center;
+        justify-content: center;
+    }
+    .iconsize {
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-right: 1rem;
+        margin-left: 1rem;
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 850px) {
+    .connect_button {
+        font-size: 0.9rem !important;
+    }
+}
+
+@media (max-width: 776px) {
+    .animatelotus_container {
+        width: 33rem;
+        height: 30rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 700px) {
+    .header {
+        margin: 0 4.5rem !important;
+    }
+    .footer_container {
+        padding: 6vh 5vw;
+    }
+    .animatelotus_container {
+        width: 27rem;
+        height: 25rem;
+    }
+    .animatelotus {
+        width: 20rem;
+        height:20rem;
+    }
+    .mint_container {
+        margin-top: 3rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .connect_button {
+        font-size: 0.6rem !important;
+    }
+    .menuicon {
+        width: 2rem !important;
+        height: 100% !important;
+        margin-left: 1rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .animatelotus_container {
+        width: 20rem;
+        height: 20rem;
+    }
+    .animatelotus {
+        width: 15rem;
+        height:15rem;
+    }
+    .main_container {
+        margin: 7rem 0 0;
+        display: block;
+        justify-content: center;
+        align-items: center;
+    }
+    .mint_container {
+        margin-top: 5rem;
+    }
+    .header {
+        margin: 0 2rem !important;
+    }
+    .mint_button {
+        font-size: 0.8rem !important;
+    }
+    .iconsize {
+        width: 2rem;
+        height: 2rem;
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,574 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+.App-light {
+  background-color: white
+}
+.App-dark {
+	background-color: #0f172a;
+}
+
+html body {
+	overflow-x: hidden;
+}
+html body {
+	color: var(--omni-base-02);
+	font-family: system-ui !important;
+	height: auto;
+	margin: 0;
+	min-width: 375px;
+	padding: 0;
+	position: relative;
+}
+html body button,
+html body input,
+html body main,
+html body select,
+html body textarea {
+	font-family: SF-Pro, sans-serif !important;
+}
+html,
+html body {
+	background: var(--main-background);
+	width: 100%;
+}
+html .gradient {
+	display: none;
+}
+html.dark .gradient {
+	display: block;
+}
+li,
+ul {
+	margin: unset;
+	padding: unset;
+}
+li {
+	list-style: none;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	appearance: none;
+	margin: 0;
+}
+input[type="number"] {
+	-webkit-appearance: textfield;
+	-moz-appearance: textfield;
+	appearance: textfield;
+}
+button {
+	border: none;
+	cursor: pointer;
+}
+
+.navigation-container {
+    margin: 10px 0 0 10px !important;
+    max-width: 98%;
+	justify-content: unset !important;
+}
+
+.sound-light {
+	color: black;
+}
+.sound-dark {
+	color: white;
+}
+
+.soundbutton-light {
+	border: solid 1px #212529 !important;
+	background-color: transparent !important;
+    font-weight: 400 !important;
+    color: #212529 !important;
+    padding: 0.45rem 0.325rem !important;
+    font-size: 1rem !important;
+	min-width: 45px !important;
+}
+
+.soundbutton-dark {
+	border: solid 1px white !important;
+	background-color: transparent !important;
+    font-weight: 400 !important;
+    color: white !important;
+    padding: 0.45rem 0.325rem !important;
+    font-size: 1rem !important;
+	min-width: 45px !important;
+}
+
+.settingbutton-light {
+	border: solid 1px #212529 !important;
+	background-color: transparent !important;
+    font-weight: 400 !important;
+    color: #212529 !important;
+    padding: 0.3rem 0.75rem !important;
+	margin-left: 8px !important;
+}
+
+.settingbutton-dark {
+	border: solid 1px white !important;
+	background-color: transparent !important;
+    font-weight: 400 !important;
+    color: #212529 !important;
+    padding: 0.3rem 0.75rem !important;
+	margin-left: 8px !important;
+}
+
+.setting-icon {
+	font-size: 1.8rem;
+	margin-left: 4px;
+}
+
+.moonbutton-light {
+	border: solid 1px white !important;
+	background-color: transparent !important;
+    font-weight: 400 !important;
+    color: white !important;
+    padding: 0.3rem 0.75rem !important;
+    font-size: 1rem !important;
+	margin-left: 8px !important;
+}
+
+.moon-icon {
+	font-size: 1.5rem;
+	margin-left: 4px;
+}
+
+.players-button-container {
+	width: 100% !important;
+	text-align: end;
+	margin-right: 10px;
+}
+
+.recent-button-light {
+	background-color: #212529 !important;
+    font-weight: 400 !important;
+    color: white !important;
+    padding: 0.3rem 0.75rem !important;
+    font-size: 0.9rem !important;
+}
+
+.recent-button-dark {
+	background-color: white !important;
+    font-weight: 400 !important;
+    color: black !important;
+    padding: 0.3rem 0.75rem !important;
+    font-size: 0.9rem !important;
+}
+
+.liveplay-button-light {
+	background-color: #212529 !important;
+    font-weight: 400 !important;
+    color: white !important;
+    padding: 0.38rem 0.75rem 0.52rem !important;
+    font-size: 0.9rem !important;
+	margin-left: 8px !important;
+	text-decoration: none !important;
+	height: 25.2px !important;
+	border-radius: 4px;
+}
+
+.liveplay-button-dark {
+	background-color: white !important;
+    font-weight: 400 !important;
+    color: black !important;
+    padding: 0.38rem 0.75rem 0.52rem !important;
+    font-size: 0.9rem !important;
+	margin-left: 8px !important;
+	text-decoration: none !important;
+	height: 25.2px !important;
+	border-radius: 4px;
+}
+
+.arrow-light {
+	color: white;
+	margin-left: 4px;
+}
+
+.arrow-dark {
+	color: black;
+	margin-left: 4px;
+}
+
+.switch-light {
+	color: white;
+	margin-left: 4px;
+}
+
+.switch-dark {
+	color: black;
+	margin-left: 4px;
+}
+
+.mainbody-container {
+	width: 70vw;
+	margin: 0 auto;
+}
+
+.main-body {
+ 	margin-top: 2rem;
+	 text-align: center;
+}
+
+.coin-light {
+	height: 200px;
+    width: 200px;
+}
+
+.sellect-wallet-container {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.sellect-wallet-light {
+	background-color: #4e44ce !important;
+    border-radius: 6px;
+    color: #fff !important;
+    align-items: center;
+    font-family: "Inter","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+}
+
+.recent-player {
+	margin-bottom: 0.5rem;
+    font-weight: 400 !important;
+    line-height: 1.2;
+	margin-top: 3rem;
+}
+
+.player-list-light {
+	width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    margin: auto;
+	text-align: left;
+}
+
+.list-group {
+	display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    border-radius: 0.25rem;
+}
+
+.list-group-item {
+	padding: 0.5rem!important;
+	position: relative;
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #212529;
+    text-decoration: none;
+    background-color: white;
+    border: 1px solid rgba(0,0,0,.125);
+	cursor: pointer;
+}
+
+.dark {
+	background-color: #1e293b !important;
+}
+
+.font-light {
+	color: white !important;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+
+.list-group-item a {
+    text-decoration: none;
+    color: #000 !important;
+	cursor: pointer;
+}
+
+.d-flex {
+	display: flex!important;
+}
+
+.profile-picture {
+	font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.profile-picture .image {
+    width: 2rem!important;
+    height: 2rem!important;
+}
+
+.rounded-circle {
+	border-radius: 50%!important;
+}
+
+.title {
+	margin-left: 0.5rem;
+	letter-spacing: 0.15rem;
+}
+
+.time-in-row {
+	position: absolute;
+    right: 10px;
+    bottom: 0;
+}
+
+.footer-container {
+	text-align: center!important;
+	padding-bottom: 3rem!important;
+	margin-top: 1rem;
+}
+
+.footer-link-light * {
+	color: #0d6efd !important;
+	text-decoration: underline !important;
+	font-size: 0.8rem;
+}
+
+.footer-link-dark * {
+	color: white !important;
+	text-decoration: underline !important;
+	font-size: 0.8rem;
+}
+
+.seprate {
+	margin: 0 0.8rem;
+}
+
+.socialicon-container {
+	right: 1.8rem;
+	position: absolute;
+    bottom: 1.8rem;
+    width: auto;
+    z-index: 10;
+}
+
+.socialicon-subcontainer {
+	flex-direction: column!important;
+	align-items: center!important;
+	justify-content: flex-start!important;
+	height: 100%!important;
+}
+
+.socialicon-subcontainer a {
+	cursor: pointer;
+	margin-right: 0.5rem!important;
+}
+
+.game-button-component {
+	line-height: 3.5rem;
+	margin: 0 auto;
+	width: 390px;
+}
+
+.game-button-component p {
+	margin-bottom: 0px !important;
+}
+
+.hero-trils-button-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.hero-trils-button-container button {
+	background-color: #fedf57 !important;
+    border-radius: 4px;
+    color: black !important;
+    align-items: center;
+    font-family: "Inter","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 1.5rem;
+	height: 50px;
+    font-weight: 600;
+    padding: 0 20px;
+}
+
+.hero-trils-button-container button:first-child {
+	margin-right: 1rem;
+}
+
+.hero-trils-button-container button:last-child {
+	margin-left: 1rem;
+}
+
+.pricebutton-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.pricebutton-container button {
+	background-color: #fedf57 !important;
+    border-radius: 2px;
+    color: black !important;
+    align-items: center;
+    font-family: "Inter","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 0.9rem;
+	width: 110px;
+	height: 30px;
+    font-weight: 400;
+    padding: 0 20px;
+	margin-bottom: 1.5rem;
+}
+
+.double-nothing-button-container button {
+	background-color: #fedf57 !important;
+    border-radius: 4px;
+    color: black !important;
+    align-items: center;
+    font-family: "Inter","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 1.5rem;
+	height: 50px;
+    font-weight: 600;
+    padding: 0 20px;
+}
+.show {
+	display: block;
+}
+
+.hide {
+	display: none !important;
+}
+
+.backg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: linear-gradient(
+	180deg,
+	rgba(255, 255, 255, 0) 14.05%,
+	rgba(255, 255, 255, 0.16) 100%
+	);
+	opacity: 0.8;
+	filter: blur(30px);
+	backdrop-filter: blur(30px);
+	width: 100vw;
+	height: 100vh;
+	
+}
+
+.closebtn {
+	z-index: 4;
+	position: absolute;
+	top: 90px;
+	right: 12px;
+	padding: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: solid 1px black;
+	font-size: 20px;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.connectwalletcard {
+	z-index: 9999;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 400px !important;
+	height: fit-content;
+	max-height: 100%;
+	background: linear-gradient(
+	91.53deg,
+	rgb(53, 202, 110) 1.89%,
+	rgb(153, 49, 144) 103.72%
+	);
+	border: 1px solid rgba(242, 242, 242, 0.4);
+	box-sizing: border-box;
+	box-shadow: 1px 0px 5px 3px rgba(255, 255, 255, 0.06);
+	backdrop-filter: blur(20px);
+	border-radius: 18px 18px 24px 24px;
+	margin: 30vh auto;
+	padding: 0 auto !important;
+}
+
+.cardtitle {
+	width: 100%;
+	min-height: 70px;
+	max-height: 120px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 12px;
+	font-size: 24px;
+	color: #fff;
+	font-family: "TTNormsMedium";
+	background: linear-gradient(
+	91.53deg,
+	rgba(255, 255, 255, 0.224) 1.89%,
+	rgba(255, 255, 255, 0.147) 103.72%
+	);
+	border: 1px solid rgba(242, 242, 242, 0.4);
+	box-sizing: border-box;
+	box-shadow: 1px 0px 5px 3px rgba(255, 255, 255, 0.06);
+	backdrop-filter: blur(20px);
+	border-radius: 18px 18px 24px 24px;
+}
+
+.cardcontent-container {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	width: 100%;
+	min-height: 100%;
+	padding: 12px 30px;
+}
+
+.walletchose {
+	cursor: pointer;
+	background: linear-gradient(
+	91.53deg,
+	rgba(255, 255, 255, 0.224) 1.89%,
+	rgba(255, 255, 255, 0.147) 103.72%
+	);
+	border: 1px solid rgba(242, 242, 242, 0.5);
+	box-sizing: border-box;
+	box-shadow: 1px 0px 5px 3px rgba(255, 255, 255, 0.06);
+	backdrop-filter: blur(20px);
+	border-radius: 10px;
+	min-width: 100%;
+	min-height: 40px;
+	padding: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	transition: all ease-out 0.3s;
+}
+
+.walletchose p {
+	margin-bottom: 0px !important;
+}
+
+.walletname {
+	font-size: 20px;
+	color: #fff;
+	font-family: "TTNormsMedium";
+}
+
+.walleticon {
+	width: 32px;
+	height: 32px;
+}
+
+.dialog-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	z-index: 4;
+	max-width: 100% !important;
+}
+
+.sticky-top {
+	z-index: 0 !important;
+}
