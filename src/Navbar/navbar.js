@@ -27,6 +27,8 @@ function Navigation() {
 
     const [gamebtnShow, setGamebtnShow ] = useState(false);
 
+    const [accountConnect, setAccountConnect] = useState(false);
+
     const ConnectMeta = async () => {
         const metamaskProvider = window.ethereum
         await metamaskProvider.request({
@@ -51,18 +53,17 @@ function Navigation() {
         setShow(false);
         setGamebtnShow(true);
         setWalletconnect(false);
+        setAccountConnect(true);
     }
 
-    useEffect(() => {
-        const connectValidate = window.ethereum.request({method: 'isConnected' });
-        if (connectValidate == true) {
-            setShow(false);
-            setGamebtnShow(true);
-            setWalletconnect(false);
-        } else {
-            return false;
-        }
-    }, [])
+    // useEffect(() => {
+    //     const connectValidate = window.ethereum.request({method: 'getconnected' });
+    //     if (connectValidate == true) {
+    //         setShow(false);
+    //         setGamebtnShow(true);
+    //         setWalletconnect(false);
+    //     }
+    // }, [])
 
     return (
         <div className={visible?'App-light':'App-dark'}>
