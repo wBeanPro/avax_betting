@@ -8,10 +8,10 @@ import CallMissedOutgoingIcon from '@mui/icons-material/CallMissedOutgoing';
 import { AiOutlineSetting } from "react-icons/ai";
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { AiOutlineClose } from "react-icons/ai";
-
-
-
+import {ethers } from "ethers"
+// const Web3 = require('web3')
 function Navigation() {
+    
     const [visible, setVisible] = useState(true);
     const togleSidebar = () => {
         setVisible(!visible);
@@ -22,8 +22,16 @@ function Navigation() {
         setShow(a);
     }
 
+    const [gamebtnShow, setGamebtnShow ] = useState(false);
+
     const ConnectMeta = async () => {
-        
+        const metamaskProvider = window.ethereum
+        await metamaskProvider.request({ method: 'eth_requestAccounts' });
+        const provider = new ethers.providers.Web3Provider(metamaskProvider);
+        const signer_metamask = provider.getSigner();
+        const { chainId } = await provider.getNetwork();
+        setShow(false);
+        setGamebtnShow(true);
     }
     
 
@@ -48,7 +56,7 @@ function Navigation() {
                     </div>
 
                         {/* Game button component */}
-                    <div className='game-button-component'>
+                    <div className={gamebtnShow?'game-button-component show':'hide'}>
                         <p className={visible?"":'font-light'}>1 LIKE</p>
                         <div className='hero-trils-button-container'>
                             <Button>HEROES</Button>
