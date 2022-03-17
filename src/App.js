@@ -1,13 +1,12 @@
 import React, {useState} from "react";
-import Navigation from './Navbar/navbar.js';
+import Content from './Body/Body.js';
 import './App.css';
 
 function App() {
-  const { visible } = Navigation();
 
   return (
     <div>
-      <Navigation />
+      <Content />
     </div>
   );
 }

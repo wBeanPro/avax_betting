@@ -11,7 +11,7 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { AiOutlineClose } from "react-icons/ai";
 import {ethers } from "ethers"
 // const Web3 = require('web3')
-function Navigation() {
+function Content() {
     
     const [visible, setVisible] = useState(true);
     const togleSidebar = () => {
@@ -23,47 +23,53 @@ function Navigation() {
         setShow(a);
     }
 
+    const [recentPlayer, setRecentPlayer] = useState(false);
+    const setplayerlist = () => {
+        setRecentPlayer(!recentPlayer);
+    }
+
     const [walletconnect, setWalletconnect] = useState(true);
 
     const [gamebtnShow, setGamebtnShow ] = useState(false);
 
-    const [accountConnect, setAccountConnect] = useState(false);
-
     const ConnectMeta = async () => {
         const metamaskProvider = window.ethereum
-        await metamaskProvider.request({
+        const validation = await metamaskProvider.request({
             method: 'wallet_addEthereumChain',
             params: [{
-                chainId: "0xA869",
-                rpcUrls: ["https://api.avax-test.network/ext/bc/C/rpc/"],
-                chainName: "FUJI Testnet",
+                chainId: "0xA86A",
+                rpcUrls: ["https://api.avax.network/ext/bc/C/rpc"],
+                chainName: "Avalanche Mainnet",
                 nativeCurrency: {
                     name: "AVAX",
                     symbol: "AVAX",
                     decimals: 18
                 },
-                blockExplorerUrls: ["https://testnet.snowtrace.io/"]
+                blockExplorerUrls: ["https://snowtrace.io/"]
             }]
         });
+
         await metamaskProvider.request({ method: 'eth_requestAccounts' });
 
         const provider = new ethers.providers.Web3Provider(metamaskProvider);
         const signer_metamask = provider.getSigner();
-        // const { chainId } = await provider.getNetwork();
+        const { chainId } = await provider.getNetwork();
         setShow(false);
         setGamebtnShow(true);
         setWalletconnect(false);
-        setAccountConnect(true);
     }
 
-    // useEffect(() => {
-    //     const connectValidate = window.ethereum.request({method: 'getconnected' });
-    //     if (connectValidate == true) {
-    //         setShow(false);
-    //         setGamebtnShow(true);
-    //         setWalletconnect(false);
-    //     }
-    // }, [])
+    useEffect(() => {
+        const connectValidate = window.ethereum.isConnected();
+        console.log(connectValidate);
+        if (connectValidate == true) {
+            setShow(false);
+            setGamebtnShow(true);
+            setWalletconnect(false);
+        } else {
+            return false;
+        }
+    }, [])
 
     return (
         <div className={visible?'App-light':'App-dark'}>
@@ -73,11 +79,118 @@ function Navigation() {
                     <Button className={visible?'show settingbutton-light':'hide'} onClick={() => togleSidebar()}>LIGHT <AiOutlineSetting className='setting-icon'/></Button>
                     <Button className={visible?'hide':'show moonbutton-light'} onClick={() => togleSidebar()}>DARK <DarkModeIcon className='moon-icon'/></Button>
                     <div className='players-button-container'>
-                        <Button className={visible?'recent-button-light':'recent-button-dark'}>RECENT <ArrowDropDownIcon className={visible?'arrow-light':'arrow-dark' }/> </Button>
+                        <Button className={visible?'recent-button-light':'recent-button-dark'} onClick={() => setplayerlist()}>RECENT <ArrowDropDownIcon className={visible?'arrow-light':'arrow-dark' }/> </Button>
                         <a href='#' className={visible?'liveplay-button-light':'liveplay-button-dark'} >LIVEPLAYS <CallMissedOutgoingIcon className={visible?'switch-light':'switch-dark'} /></a>
                     </div>
                 </Container>
             </Navbar>
+
+            {/* Recen player list */}
+            <div className={recentPlayer?'show recent-player-list-light':'hide'}>
+                        <ul className='list-group'>
+                            <li className={visible?'list-group-item d-flex':'list-group-item d-flex dark'}>
+                                <a className='d-flex'>
+                                    <div className='profile-picture'>
+                                        <img class="image rounded-circle" src="https://i.imgur.com/OjGFzTQ.png" alt="" />
+                                    </div>
+                                    <div class={visible?"title":'title font-light'}>Wallet (G74w) flipped 0.1 and doubled.</div>
+                                    <small class={visible?"time-in-row":'time-in-row font-light'}>8 hours ago</small>
+                                </a>
+                            </li>
+                            
+                            <li className={visible?'list-group-item d-flex':'list-group-item d-flex dark'}>
+                                <a className='d-flex'>
+                                    <div className='profile-picture'>
+                                        <img class="image rounded-circle" src="https://i.imgur.com/OjGFzTQ.png" alt="" />
+                                    </div>
+                                    <div class={visible?"title":'title font-light'}> flipped 0.05 and doubled.</div>
+                                    <small class={visible?"time-in-row":'time-in-row font-light'}>8 hours ago</small>
+                                </a>
+                            </li>
+
+                            <li className={visible?'list-group-item d-flex':'list-group-item d-flex dark'}>
+                                <a className='d-flex'>
+                                    <div className='profile-picture'>
+                                        <img class="image rounded-circle" src="https://i.imgur.com/OjGFzTQ.png" alt="" />
+                                    </div>
+                                    <div class={visible?"title":'title font-light'}>Wallet (Hg2f) and doubled.</div>
+                                    <small class={visible?"time-in-row":'time-in-row font-light'}>8 hours ago</small>
+                                </a>
+                            </li>
+
+                            <li className={visible?'list-group-item d-flex':'list-group-item d-flex dark'}>
+                                <a className='d-flex'>
+                                    <div className='profile-picture'>
+                                        <img class="image rounded-circle" src="https://i.imgur.com/OjGFzTQ.png" alt="" />
+                                    </div>
+                                    <div class={visible?"title":'title font-light'}>Wallet (Hg2f) flipped 0.05 and got rugged..</div>
+                                    <small class={visible?"time-in-row":'time-in-row font-light'}>8 hours ago</small>
+                                </a>
+                            </li>
+
+                            <li className={visible?'list-group-item d-flex':'list-group-item d-flex dark'}>
+                                <a className='d-flex'>
+                                    <div className='profile-picture'>
+                                        <img class="image rounded-circle" src="https://i.imgur.com/OjGFzTQ.png" alt="" />
+                                    </div>
+                                    <div class={visible?"title":'title font-light'}>Wallet (EPmS) flipped 0.1 and doubled.</div>
+                                    <small class={visible?"time-in-row":'time-in-row font-light'}>8 hours ago</small>
+                                </a>
+                            </li>
+
+                            <li className={visible?'list-group-item d-flex':'list-group-item d-flex dark'}>
+                                <a className='d-flex'>
+                                    <div className='profile-picture'>
+                                        <img class="image rounded-circle" src="https://i.imgur.com/OjGFzTQ.png" alt="" />
+                                    </div>
+                                    <div class={visible?"title":'title font-light'}>Wallet (G74w) flipped 0.1 and doubled.</div>
+                                    <small class={visible?"time-in-row":'time-in-row font-light'}>8 hours ago</small>
+                                </a>
+                            </li>
+
+                            <li className={visible?'list-group-item d-flex':'list-group-item d-flex dark'}>
+                                <a className='d-flex'>
+                                    <div className='profile-picture'>
+                                        <img class="image rounded-circle" src="https://i.imgur.com/OjGFzTQ.png" alt="" />
+                                    </div>
+                                    <div class={visible?"title":'title font-light'}>Wallet (G74w) flipped 0.1 and doubled.</div>
+                                    <small class={visible?"time-in-row":'time-in-row font-light'}>8 hours ago</small>
+                                </a>
+                            </li>
+
+                            <li className={visible?'list-group-item d-flex':'list-group-item d-flex dark'}>
+                                <a className='d-flex'>
+                                    <div className='profile-picture'>
+                                        <img class="image rounded-circle" src="https://i.imgur.com/OjGFzTQ.png" alt="" />
+                                    </div>
+                                    <div class={visible?"title":'title font-light'}>Wallet (G74w) flipped 0.1 and doubled.</div>
+                                    <small class={visible?"time-in-row":'time-in-row font-light'}>8 hours ago</small>
+                                </a>
+                            </li>
+
+                            <li className={visible?'list-group-item d-flex':'list-group-item d-flex dark'}>
+                                <a className='d-flex'>
+                                    <div className='profile-picture'>
+                                        <img class="image rounded-circle" src="https://i.imgur.com/OjGFzTQ.png" alt="" />
+                                    </div>
+                                    <div class={visible?"title":'title font-light'}>Wallet (G74w) flipped 0.1 and doubled.</div>
+                                    <small class={visible?"time-in-row":'time-in-row font-light'}>8 hours ago</small>
+                                </a>
+                            </li>
+
+                            <li className={visible?'list-group-item d-flex':'list-group-item d-flex dark'}>
+                                <a className='d-flex'>
+                                    <div className='profile-picture'>
+                                        <img class="image rounded-circle" src="https://i.imgur.com/OjGFzTQ.png" alt="" />
+                                    </div>
+                                    <div class={visible?"title":'title font-light'}>Wallet (G74w) flipped 0.1 and doubled.</div>
+                                    <small class={visible?"time-in-row":'time-in-row font-light'}>8 hours ago</small>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
             <Container className='mainbody-container'>
                 <div className='main-body'>
                     <Image src='https://i.imgur.com/896fn7R.png' className='coin-light'/>
@@ -259,4 +372,4 @@ function Navigation() {
     )
 }
 
-export default Navigation;
+export default Content;
